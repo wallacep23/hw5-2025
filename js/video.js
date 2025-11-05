@@ -48,9 +48,11 @@ function mute(){
 }
 
 function changeVolume(){
-	console.log("Changing volume")
+	let volumeLabel = document.querySelector("#volume")
 	let slider = document.querySelector("#slider")
 	video.volume = slider.value / 100
+	volumeLabel.innerHTML = slider.value + "%"
+	console.log("Changing volume: " + slider.value + "%")
 }
 
 document.querySelector("#play").addEventListener("click", function(){
@@ -71,6 +73,14 @@ document.querySelector("#faster").addEventListener("click", function(){
 
 document.querySelector("#skip").addEventListener("click", function(){
 	skip()
+})
+
+document.querySelector("#slider").addEventListener("input", function(){
+	changeVolume()	
+})
+
+document.querySelector("#mute").addEventListener("click", function(){
+	mute()
 })
 
 document.querySelector("#vintage").addEventListener("click", function(){
