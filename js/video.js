@@ -27,7 +27,12 @@ function slower(){
 
 function skip(){
 	console.log("Skipping")	
-	video.currentTime += 10
+	if(video.currentTime + 10 > video.duration){
+		video.currentTime = 0
+	}
+	else{
+		video.currentTime += 10
+	}
 	console.log(video.currentTime)
 }
 
